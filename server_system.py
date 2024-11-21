@@ -17,7 +17,8 @@ def _connect_to_server() -> None:
         _server_status = _server_lookup.status()
         
         is_working = True
-    except Exception as e: is_working = False
+    except Exception as e: 
+        is_working = False
 _connect_to_server()
 
 def reconnect() -> None: _connect_to_server()
@@ -25,22 +26,28 @@ def reconnect() -> None: _connect_to_server()
 def request_lenght() -> Tuple[int, int] | None:
     """request online lenght in `tuple[int, int]` where first int is \
         online now and second is max"""
-    if not is_working: return None
+    if not is_working: 
+        return None
     try:
         return (_server_status.players.online, _server_status.players.max)
-    except Exception as e: return None
+    except Exception as e: 
+        return None
     
 def request_lenght_names() -> List[str]:
-    if not is_working: return None
+    if not is_working: 
+        return None
     try:
         return [jsp.name for jsp in _server_status.players.sample]
-    except Exception as e: return None
+    except Exception as e: 
+        return None
 
 def request_information() -> Tuple[str] | None:
     """request all information in tuple[...] with params -> version.name(str), \
         version.protocol(int), *request_lenght"""
-    if not is_working: return None
+    if not is_working: 
+        return None
     try:
         return (_server_status.version.name, _server_status.version.protocol,
             _server_status.players.online, _server_status.players.max)
-    except Exception as e: return None
+    except Exception as e: 
+        return None

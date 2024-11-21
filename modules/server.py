@@ -47,7 +47,8 @@ class server(commands.Cog):
             await iter.response.send_message("oops, it looks like something went wrong")
             return None
         
-        length = request_lenght(); length_nicknames = request_lenght_names()
+        length = request_lenght()
+        length_nicknames = request_lenght_names()
         slashcommand_output: List[str] = []
         
         if length is not None:

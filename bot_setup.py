@@ -10,5 +10,6 @@ bot_instance: commands.Bot = commands.Bot(command_prefix='>', intents=intents, o
 
 from os import listdir
 for file in listdir("modules/"):
-    if not file.endswith(".py"): continue
+    if not file.endswith(".py"): 
+        continue
     bot_instance.load_extension(f"modules.{file[:-3]}")
